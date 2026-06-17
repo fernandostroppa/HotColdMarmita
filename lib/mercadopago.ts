@@ -54,7 +54,7 @@ export async function criarPagamentoCartao(params: {
       description: `Pedido #${params.pedidoId} - Marmita`,
       installments: params.installments,
       payment_method_id: params.paymentMethodId,
-      issuer_id: params.issuerId,
+      issuer_id: Number(params.issuerId),
       payer: { email: params.email },
       external_reference: String(params.pedidoId),
       ...(process.env.NEXT_PUBLIC_BASE_URL?.startsWith('https') && {
