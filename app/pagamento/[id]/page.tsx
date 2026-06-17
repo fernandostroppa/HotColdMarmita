@@ -98,8 +98,8 @@ export default function PaginaPagamento({ params }: { params: Promise<{ id: stri
 
   return (
     <main className="min-h-screen pb-10">
-      <header className="bg-orange-500 text-white px-4 pt-10 pb-5">
-        <button onClick={() => router.back()} className="flex items-center gap-1 text-orange-100 text-sm mb-3">
+      <header className="bg-red-600 text-white px-4 pt-10 pb-5">
+        <button onClick={() => router.back()} className="flex items-center gap-1 text-red-100 text-sm mb-3">
           <ChevronLeft size={16} /> Voltar
         </button>
         <h1 className="text-xl font-bold">Pagamento</h1>
@@ -117,7 +117,7 @@ export default function PaginaPagamento({ params }: { params: Promise<{ id: stri
           ))}
           <div className="flex justify-between font-bold text-lg mt-3">
             <span>Total</span>
-            <span className="text-orange-600">R$ {pedido.total.toFixed(2).replace('.', ',')}</span>
+            <span className="text-red-600">R$ {pedido.total.toFixed(2).replace('.', ',')}</span>
           </div>
         </div>
 
@@ -156,7 +156,7 @@ export default function PaginaPagamento({ params }: { params: Promise<{ id: stri
                 onClick={() => setMetodo('PIX')}
                 className={`flex flex-col items-center gap-2 py-4 rounded-xl border-2 transition-colors ${metodo === 'PIX' ? 'border-orange-500 bg-orange-50' : 'border-gray-200'}`}
               >
-                <QrCode size={28} className={metodo === 'PIX' ? 'text-orange-500' : 'text-gray-400'} />
+                <QrCode size={28} className={metodo === 'PIX' ? 'text-red-500' : 'text-gray-400'} />
                 <span className="font-semibold text-sm">PIX</span>
                 <span className="text-xs text-green-600 font-medium">Aprovação imediata</span>
               </button>
@@ -164,7 +164,7 @@ export default function PaginaPagamento({ params }: { params: Promise<{ id: stri
                 onClick={() => setMetodo('CARTAO')}
                 className={`flex flex-col items-center gap-2 py-4 rounded-xl border-2 transition-colors ${metodo === 'CARTAO' ? 'border-orange-500 bg-orange-50' : 'border-gray-200'}`}
               >
-                <CreditCard size={28} className={metodo === 'CARTAO' ? 'text-orange-500' : 'text-gray-400'} />
+                <CreditCard size={28} className={metodo === 'CARTAO' ? 'text-red-500' : 'text-gray-400'} />
                 <span className="font-semibold text-sm">Cartão</span>
                 <span className="text-xs text-gray-500">Crédito / Débito</span>
               </button>

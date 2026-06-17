@@ -103,7 +103,7 @@ export default function Admin() {
     return (
       <div className="min-h-screen bg-gray-100 flex items-center justify-center px-4">
         <div className="bg-white rounded-2xl p-8 w-full max-w-xs text-center shadow-xl">
-          <Lock size={40} className="text-orange-500 mx-auto mb-3" />
+          <Lock size={40} className="text-red-500 mx-auto mb-3" />
           <h1 className="text-xl font-bold mb-1">Administração</h1>
           <p className="text-gray-500 text-sm mb-4">Digite a senha para continuar</p>
           <input
@@ -125,14 +125,14 @@ export default function Admin() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <header className="bg-orange-500 text-white px-4 pt-10 pb-5 flex items-center justify-between">
+      <header className="bg-red-600 text-white px-4 pt-10 pb-5 flex items-center justify-between">
         <div>
           <h1 className="text-xl font-bold">Gerenciar Cardápio</h1>
-          <p className="text-orange-100 text-sm mt-0.5">{itens.length} itens cadastrados</p>
+          <p className="text-red-100 text-sm mt-0.5">{itens.length} itens cadastrados</p>
         </div>
         <button
           onClick={() => setEditando({ nome: '', descricao: '', preco: 0, categoria: 'Marmita', ativo: true, ordem: 99 })}
-          className="bg-white text-orange-600 font-semibold px-4 py-2 rounded-xl flex items-center gap-2 hover:bg-orange-50 transition-colors"
+          className="bg-white text-red-600 font-semibold px-4 py-2 rounded-xl flex items-center gap-2 hover:bg-orange-50 transition-colors"
         >
           <Plus size={16} /> Novo item
         </button>
@@ -148,14 +148,14 @@ export default function Admin() {
                   <div className="flex-1 min-w-0">
                     <p className="font-semibold text-gray-900 truncate">{item.nome}</p>
                     {item.descricao && <p className="text-xs text-gray-500 truncate">{item.descricao}</p>}
-                    <p className="text-orange-600 font-bold text-sm mt-0.5">
+                    <p className="text-red-600 font-bold text-sm mt-0.5">
                       {item.preco > 0 ? `R$ ${item.preco.toFixed(2).replace('.', ',')}` : 'Incluso'}
                     </p>
                   </div>
                   <button onClick={() => toggleAtivo(item)} className="text-gray-400 hover:text-gray-700 p-1">
                     {item.ativo ? <Eye size={18} /> : <EyeOff size={18} />}
                   </button>
-                  <button onClick={() => setEditando(item)} className="text-orange-400 hover:text-orange-600 p-1">
+                  <button onClick={() => setEditando(item)} className="text-red-400 hover:text-red-600 p-1">
                     <Pencil size={18} />
                   </button>
                 </div>

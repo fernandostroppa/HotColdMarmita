@@ -82,7 +82,7 @@ export default function Cardapio() {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-4 border-orange-500 border-t-transparent mx-auto mb-3" />
+          <div className="animate-spin rounded-full h-12 w-12 border-4 border-red-500 border-t-transparent mx-auto mb-3" />
           <p className="text-gray-500">Carregando cardápio...</p>
         </div>
       </div>
@@ -92,21 +92,21 @@ export default function Cardapio() {
   return (
     <main className="min-h-screen pb-32">
       {/* Header */}
-      <header className="bg-orange-500 text-white px-4 pt-10 pb-6">
-        <h1 className="text-2xl font-bold">🍱 Cardápio do Dia</h1>
-        <p className="text-orange-100 text-sm mt-1">Escolha sua marmita e finalize o pedido</p>
+      <header className="bg-red-600 text-white px-4 pt-10 pb-6">
+        <h1 className="text-2xl font-bold">🍱 Hot & Cold Self Service</h1>
+        <p className="text-red-100 text-sm mt-1">Cardápio do dia — escolha sua marmita e finalize o pedido</p>
 
         {/* Tipo de pedido */}
         <div className="flex gap-2 mt-4">
           <button
             onClick={() => setTipo('LOCAL')}
-            className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-colors ${tipo === 'LOCAL' ? 'bg-white text-orange-600' : 'bg-orange-600 text-white border border-orange-300'}`}
+            className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-colors ${tipo === 'LOCAL' ? 'bg-white text-red-600' : 'bg-red-700 text-white border border-red-300'}`}
           >
             <MapPin size={14} /> Vou retirar presencialmente
           </button>
           <button
             onClick={() => setTipo('ONLINE')}
-            className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-colors ${tipo === 'ONLINE' ? 'bg-white text-orange-600' : 'bg-orange-600 text-white border border-orange-300'}`}
+            className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-colors ${tipo === 'ONLINE' ? 'bg-white text-red-600' : 'bg-red-700 text-white border border-red-300'}`}
           >
             <Wifi size={14} /> Pedido online
           </button>
@@ -118,7 +118,7 @@ export default function Cardapio() {
         {categorias.map(cat => (
           <section key={cat}>
             <h2 className="text-lg font-bold text-gray-700 mb-3 flex items-center gap-2">
-              <span className="w-1 h-5 bg-orange-500 rounded-full inline-block" />
+              <span className="w-1 h-5 bg-red-600 rounded-full inline-block" />
               {cat}
             </h2>
             <div className="space-y-3">
@@ -128,7 +128,7 @@ export default function Cardapio() {
                     <p className="font-semibold text-gray-900">{item.nome}</p>
                     {item.descricao && <p className="text-sm text-gray-500 mt-0.5 leading-snug">{item.descricao}</p>}
                     {item.preco > 0 && (
-                      <p className="text-orange-600 font-bold mt-1">
+                      <p className="text-red-600 font-bold mt-1">
                         R$ {item.preco.toFixed(2).replace('.', ',')}
                       </p>
                     )}
@@ -140,11 +140,11 @@ export default function Cardapio() {
                     </button>
                   ) : (
                     <div className="flex items-center gap-2">
-                      <button onClick={() => removeItem(item.id)} className="w-8 h-8 rounded-full bg-orange-100 text-orange-600 flex items-center justify-center hover:bg-orange-200 transition-colors">
+                      <button onClick={() => removeItem(item.id)} className="w-8 h-8 rounded-full bg-orange-100 text-red-600 flex items-center justify-center hover:bg-orange-200 transition-colors">
                         <Minus size={14} />
                       </button>
                       <span className="w-6 text-center font-bold">{getQtd(item.id)}</span>
-                      <button onClick={() => addItem(item)} className="w-8 h-8 rounded-full bg-orange-500 text-white flex items-center justify-center hover:bg-orange-600 transition-colors">
+                      <button onClick={() => addItem(item)} className="w-8 h-8 rounded-full bg-red-600 text-white flex items-center justify-center hover:bg-red-700 transition-colors">
                         <Plus size={14} />
                       </button>
                     </div>
@@ -178,7 +178,7 @@ export default function Cardapio() {
             className="btn-primary w-full flex items-center justify-between"
           >
             <span className="flex items-center gap-2">
-              <span className="bg-white text-orange-500 rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold">{qtdTotal}</span>
+              <span className="bg-white text-red-500 rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold">{qtdTotal}</span>
               Ver carrinho
             </span>
             <span className="flex items-center gap-1">
@@ -195,7 +195,7 @@ export default function Cardapio() {
           <div className="bg-white rounded-t-3xl p-5 max-h-[85vh] overflow-y-auto" onClick={e => e.stopPropagation()}>
             <div className="flex items-center justify-between mb-5">
               <h2 className="text-xl font-bold flex items-center gap-2">
-                <ShoppingCart size={20} className="text-orange-500" /> Seu pedido
+                <ShoppingCart size={20} className="text-red-500" /> Seu pedido
               </h2>
               <button onClick={() => setCarrinhoAberto(false)} className="text-gray-400 hover:text-gray-600">
                 <X size={22} />
@@ -209,7 +209,7 @@ export default function Cardapio() {
                     <div className="flex justify-between">
                       <p className="font-medium">{item.nome}</p>
                       {item.preco > 0 && (
-                        <p className="font-semibold text-orange-600 ml-2">
+                        <p className="font-semibold text-red-600 ml-2">
                           R$ {(item.preco * item.quantidade).toFixed(2).replace('.', ',')}
                         </p>
                       )}
@@ -225,11 +225,11 @@ export default function Cardapio() {
                     />
                   </div>
                   <div className="flex items-center gap-2 mt-1">
-                    <button onClick={() => removeItem(item.id)} className="w-7 h-7 rounded-full bg-orange-100 text-orange-600 flex items-center justify-center">
+                    <button onClick={() => removeItem(item.id)} className="w-7 h-7 rounded-full bg-orange-100 text-red-600 flex items-center justify-center">
                       <Minus size={12} />
                     </button>
                     <span className="text-sm font-bold w-4 text-center">{item.quantidade}</span>
-                    <button onClick={() => addItem(item)} className="w-7 h-7 rounded-full bg-orange-500 text-white flex items-center justify-center">
+                    <button onClick={() => addItem(item)} className="w-7 h-7 rounded-full bg-red-600 text-white flex items-center justify-center">
                       <Plus size={12} />
                     </button>
                   </div>
@@ -239,7 +239,7 @@ export default function Cardapio() {
 
             <div className="flex justify-between items-center text-lg font-bold mb-5 pt-2">
               <span>Total</span>
-              <span className="text-orange-600">R$ {total.toFixed(2).replace('.', ',')}</span>
+              <span className="text-red-600">R$ {total.toFixed(2).replace('.', ',')}</span>
             </div>
 
             <button

@@ -19,7 +19,7 @@ type Pedido = {
 
 const STATUS_ICONS: Record<string, React.ReactNode> = {
   PAGO:       <Clock size={40} className="text-blue-500" />,
-  EM_PREPARO: <ChefHat size={40} className="text-orange-500" />,
+  EM_PREPARO: <ChefHat size={40} className="text-red-500" />,
   PRONTO:     <CheckCircle size={40} className="text-green-500" />,
   RETIRADO:   <Package size={40} className="text-gray-400" />,
 }
@@ -49,13 +49,13 @@ export default function PaginaSenha({ params }: { params: Promise<{ id: string }
   const retirado = pedido.status === 'RETIRADO'
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-orange-500 to-orange-600 flex flex-col items-center justify-center px-4 py-10">
+    <main className="min-h-screen bg-gradient-to-b from-red-600 to-red-700 flex flex-col items-center justify-center px-4 py-10">
       {/* Senha em destaque */}
       <div className={`rounded-3xl px-12 py-8 text-center mb-6 shadow-2xl transition-all ${pronto ? 'bg-green-500 scale-105' : 'bg-white'}`}>
         <p className={`text-sm font-semibold mb-1 ${pronto ? 'text-green-100' : 'text-gray-500'}`}>
           {pronto ? '🎉 Sua marmita está pronta!' : 'Sua senha é'}
         </p>
-        <p className={`text-7xl font-black tracking-tight ${pronto ? 'text-white' : 'text-orange-500'}`}>
+        <p className={`text-7xl font-black tracking-tight ${pronto ? 'text-white' : 'text-red-500'}`}>
           {String(pedido.senha).padStart(3, '0')}
         </p>
         {pedido.nomeCliente && (
@@ -93,7 +93,7 @@ export default function PaginaSenha({ params }: { params: Promise<{ id: string }
         {pedido.itens.map(i => (
           <div key={i.id} className="text-white/80 text-sm py-1 flex justify-between">
             <span>{i.quantidade}x {i.item.nome}</span>
-            {i.observacao && <span className="text-orange-200 text-xs italic">{i.observacao}</span>}
+            {i.observacao && <span className="text-red-200 text-xs italic">{i.observacao}</span>}
           </div>
         ))}
         <div className="border-t border-white/20 mt-2 pt-2 flex justify-between text-white font-semibold">

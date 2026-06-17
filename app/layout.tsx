@@ -5,7 +5,7 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Marmita — Pedido Online',
+  title: 'Hot & Cold Self Service — Pedido Online',
   description: 'Faça seu pedido de marmita com facilidade',
 }
 
