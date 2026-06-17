@@ -18,7 +18,7 @@ export async function POST(req: NextRequest) {
   })
 
   // Modo de teste: aprova automaticamente sem chamar o Mercado Pago
-  const modoTeste = process.env.NEXT_PUBLIC_BASE_URL?.startsWith('http://localhost')
+  const modoTeste = process.env.MODO_TESTE === 'true' || process.env.NEXT_PUBLIC_BASE_URL?.startsWith('http://localhost')
 
   if (modoTeste) {
     await prisma.pedido.update({ where: { id: pedidoId }, data: { status: 'PAGO' } })
